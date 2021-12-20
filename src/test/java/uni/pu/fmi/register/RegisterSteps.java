@@ -2,16 +2,15 @@ package uni.pu.fmi.register;
 
 import static org.junit.Assert.assertEquals;
 
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import uni.pu.fmi.login.LoginScreenModel;
 
 public class RegisterSteps {
-	private RegisterFormModel formModel;
+	private LoginScreenModel formModel;
 
-	@Given("^Поптребителя отваря формата за регистарция$")
-	public void openRegisterForm() throws Throwable {
-		formModel = new RegisterFormModel();
+	public RegisterSteps(final LoginScreenModel formModel) {
+		this.formModel = formModel;
 	}
 
 	@When("^Въведежда потребителско име$")
@@ -41,7 +40,7 @@ public class RegisterSteps {
 	 * checkMissingUsernameMessage() throws Throwable {
 	 * assertEquals("missing username", formModel.getMessage()); }
 	 */
-	
+
 	@Then("^Вижда съобщение \"([^\"]*)\"$")
 	public void checkMessage(final String expectedMessage) throws Throwable {
 		assertEquals(expectedMessage, formModel.getMessage());

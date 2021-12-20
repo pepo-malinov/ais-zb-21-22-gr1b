@@ -7,31 +7,36 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LoginSteps {
-	private LoginScreenModel loginModel;
+	private LoginScreenModel formModel;
+
+	public LoginSteps(final LoginScreenModel formModel) {
+		this.formModel = formModel;
+	}
 
 	@Given("^Потребителя отваря екрана за вход в системата$")
 	public void navigateToLoginScreen() throws Throwable {
-		loginModel = new LoginScreenModel();
+		formModel = new LoginScreenModel();
 	}
 
 	@When("^Въвежда име: \"([^\"]*)\"$")
 	public void setLoginName(final String loginName) throws Throwable {
-		loginModel.setUsername(loginName);
+
+		formModel.setUsername(loginName);
 	}
 
 	@When("^въвежда парола: \"([^\"]*)\"$")
 	public void setPassword(final String password) throws Throwable {
-		loginModel.setPassword(password);
+		formModel.setPassword(password);
 	}
 
 	@When("^Натиска бутовна за вход в системата$")
 	public void loginButtonClick() throws Throwable {
-		loginModel.loginButtonClick();
+		formModel.loginButtonClick();
 	}
 
 	@Then("^визуализира се съобщение: \"([^\"]*)\"$")
 	public void checkLoginMessage(String expectedMessage) throws Throwable {
-		final String message = loginModel.getMessage();
+		final String message = formModel.getMessage();
 		assertEquals("Съобщениет е: '" + message + "', я трябваше да е: '" + expectedMessage + "'", expectedMessage,
 				message);
 	}
