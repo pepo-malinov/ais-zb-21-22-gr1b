@@ -8,6 +8,7 @@ import uni.pu.fmi.register.models.User;
 public class RegisterService {
 
 	private static List<User> users = new ArrayList<>();
+	
 
 	public static String register(final String username, final String password) {
 
@@ -29,8 +30,5 @@ public class RegisterService {
 		return "ok";
 	}
 
-	private static void initDB() {
-
-	}
 
 }

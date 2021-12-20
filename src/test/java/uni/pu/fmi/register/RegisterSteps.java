@@ -29,18 +29,21 @@ public class RegisterSteps {
 		formModel.registerButtonClick();
 	}
 
-	@Then("^Вижда съобщение за успех$")
-	public void checkMessage() throws Throwable {
-		assertEquals("ok", formModel.getMessage());
-	}
-
-	@Then("^Вижда съобщение за липса на парола$")
-	public void checkMissingPassMessage() throws Throwable {
-		assertEquals("missing pass", formModel.getMessage());
-	}
+	/*
+	 * @Then("^Вижда съобщение за успех$") public void checkMessage() throws
+	 * Throwable { assertEquals("ok", formModel.getMessage()); }
+	 * 
+	 * @Then("^Вижда съобщение за липса на парола$") public void
+	 * checkMissingPassMessage() throws Throwable { assertEquals("missing pass",
+	 * formModel.getMessage()); }
+	 * 
+	 * @Then("^Вижда съобщение за липса на име$") public void
+	 * checkMissingUsernameMessage() throws Throwable {
+	 * assertEquals("missing username", formModel.getMessage()); }
+	 */
 	
-	@Then("^Вижда съобщение за липса на име$")
-	public void checkMissingUsernameMessage() throws Throwable {
-		assertEquals("missing username", formModel.getMessage());
+	@Then("^Вижда съобщение \"([^\"]*)\"$")
+	public void checkMessage(final String expectedMessage) throws Throwable {
+		assertEquals(expectedMessage, formModel.getMessage());
 	}
 }

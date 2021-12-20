@@ -1,4 +1,4 @@
-package uni.pu.fmi.register;
+package uni.pu.fmi.login;
 
 import org.junit.runner.RunWith;
 
@@ -7,6 +7,6 @@ import cucumber.api.junit.Cucumber;
 
 /*@RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "html:target/cucumber-raport" }, monochrome = true)*/
-public class RegisterStarter {
+public class LoginStarter {
 
 }
